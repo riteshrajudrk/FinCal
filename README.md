@@ -1,36 +1,188 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FinCal Goal-Based Investment Calculator
 
-## Getting Started
+An educational Goal-Based Investment Calculator built for the FinCal Innovation Hackathon.
 
-First, run the development server:
+The app helps users understand how much monthly SIP they may need to invest to reach a future financial goal after accounting for inflation and expected returns.
+
+## Overview
+
+This project is designed as a responsive, accessible, production-ready fintech web application using Next.js 15 App Router, TypeScript, Tailwind CSS, and Recharts.
+
+Users can:
+
+- Adjust financial assumptions using interactive sliders
+- See real-time goal inflation and SIP calculations
+- Visualize portfolio growth over time
+- Compare total invested amount versus estimated returns
+- Understand the formulas through an educational explanation section
+
+## Tech Stack
+
+- Next.js 15 App Router
+- TypeScript
+- Tailwind CSS
+- Recharts
+- Framer Motion
+- Node.js compatible
+
+## Financial Logic
+
+### Step 1: Inflate the Goal Cost
+
+`FutureGoalValue = PresentCost * (1 + inflationRate)^years`
+
+### Step 2: Calculate Required SIP
+
+`r = annualReturn / 12`
+
+`n = years * 12`
+
+`RequiredSIP = FutureGoalValue * r / ((((1 + r)^n) - 1) * (1 + r))`
+
+## Inputs
+
+- `currentGoalCost`
+- `yearsToGoal`
+- `expectedInflationRate`
+- `expectedAnnualReturn`
+
+## Outputs
+
+- `inflatedGoalCost`
+- `requiredMonthlyInvestment`
+- `totalInvestment`
+- `estimatedReturns`
+
+## Features
+
+- Interactive sliders instead of manual text inputs
+- Real-time calculations
+- Animated result cards
+- Growth projection chart
+- Investment vs returns breakdown chart
+- Educational explanation section
+- Responsive design across desktop and mobile
+- Accessible forms and keyboard-friendly controls
+- Required financial disclaimer
+
+## Accessibility
+
+The UI was built with WCAG 2.1 AA-oriented practices in mind:
+
+- Semantic HTML structure
+- Clear section headings
+- Keyboard-accessible slider controls
+- ARIA labels for interactive inputs and chart regions
+- Visible focus states
+- Brand colors chosen with readable contrast on light surfaces
+
+## Brand Guidelines Applied
+
+- Primary Blue: `#224c87`
+- Red: `#da3832`
+- Grey: `#919090`
+- Font stack: `Montserrat, Arial, Verdana, sans-serif`
+
+## Project Structure
+
+```text
+app/
+  favicon.ico
+  globals.css
+  layout.tsx
+  page.tsx
+components/
+  calculator/
+    Disclaimer.tsx
+    ExplanationSection.tsx
+    GoalCalculator.tsx
+    RangeSlider.tsx
+    ResultCard.tsx
+  charts/
+    GrowthChart.tsx
+    InvestmentBreakdownChart.tsx
+lib/
+  finance.ts
+styles/
+  theme.css
+```
+
+## Key Files
+
+- `app/page.tsx` renders the calculator experience
+- `components/calculator/GoalCalculator.tsx` contains the main UI and live state
+- `components/charts/GrowthChart.tsx` shows projected growth over time
+- `components/charts/InvestmentBreakdownChart.tsx` shows invested amount vs returns
+- `lib/finance.ts` contains the core financial formulas and projection helpers
+
+## Local Setup
+
+### Prerequisites
+
+- Node.js 18 or later
+- npm
+
+### Install
+
+```bash
+npm install
+```
+
+### Run in Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Verification
 
-To learn more about Next.js, take a look at the following resources:
+This project has been verified with a successful production build using:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js `15.5.12`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Disclaimer
 
-## Deploy on Vercel
+This tool has been designed for information purposes only. Actual results may vary depending on various factors involved in capital market. Investor should not consider above as a recommendation for any schemes of HDFC Mutual Fund. Past performance may or may not be sustained in future and is not a guarantee of any future returns.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Working Video Guide
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Use this short script while recording the mandatory demo video:
+
+1. Open the homepage and introduce the app as a Goal-Based Investment Calculator for educational financial planning.
+2. Show the four sliders: current goal cost, years to goal, inflation rate, and annual return.
+3. Change the sliders live and explain that the result cards update instantly.
+4. Highlight the inflated goal cost and required monthly SIP.
+5. Scroll to the growth projection chart and explain how compounding affects long-term outcomes.
+6. Scroll to the invested vs returns chart and explain contribution versus generated wealth.
+7. Show the explanation section with the formulas.
+8. End by showing the disclaimer and summarizing that the tool is educational, not investment advice.
+
+## Suggested GitHub Submission Notes
+
+When publishing the repository, include:
+
+- Project title
+- Hackathon name
+- Problem statement addressed
+- Tech stack used
+- Setup instructions
+- Screenshots if available
+- Demo video link
+
+## Future Enhancements
+
+- Goal presets such as education, retirement, travel, or home purchase
+- Export to PDF
+- Compare multiple return scenarios
+- Save and share plan links
+- Multi-language support
+

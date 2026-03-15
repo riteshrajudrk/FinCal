@@ -1,0 +1,13 @@
+:root {
+  --background: #eff4fa;
+  --foreground: #10233f;
+  --primary-blue: #224c87;
+  --primary-blue-strong: #16355f;
+  --accent-red: #da3832;
+  --neutral-grey: #919090;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: #ffffff;
+  --border-soft: rgba(34, 76, 135, 0.12);
+  --shadow-soft: 0 20px 60px rgba(19, 41, 74, 0.12);
+  --font-brand: Montserrat, Arial, Verdana, sans-serif;
+}
