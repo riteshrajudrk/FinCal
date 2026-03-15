@@ -155,6 +155,8 @@ This tool has been designed for information purposes only. Actual results may va
 
 ## Working Video Guide
 
+Demo video: `https://drive.google.com/file/d/1GhTpBb4sdwd3T9e5TFT77ZKpY2USwR8g/view?usp=sharing`
+
 Use this short script while recording the mandatory demo video:
 
 1. Open the homepage and introduce the app as a Goal-Based Investment Calculator for educational financial planning.
@@ -185,4 +187,3 @@ When publishing the repository, include:
 - Compare multiple return scenarios
 - Save and share plan links
 - Multi-language support
-
